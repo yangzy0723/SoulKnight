@@ -1,0 +1,13 @@
+
+
+apply plugin: "java"
+
+
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+sourceSets.test.java.srcDirs = [ "src/" ]
+sourceSets.test.resources.srcDirs = ["../assets"]
+
+eclipse.project {
+    name = appName + "-tests"
+}

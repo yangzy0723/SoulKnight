@@ -1,0 +1,112 @@
+buildscript {
+    
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        gradlePluginPortal()
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+        google()
+    }
+    dependencies {
+        
+
+    }
+}
+
+allprojects {
+    apply plugin: "eclipse"
+
+    version = '1.0'
+    ext {
+        appName = "SoulKnight"
+        gdxVersion = '1.12.0'
+        roboVMVersion = '2.3.20'
+        box2DLightsVersion = '1.5'
+        ashleyVersion = '1.7.4'
+        aiVersion = '1.8.2'
+        gdxControllersVersion = '2.2.1'
+    }
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        google()
+        gradlePluginPortal()
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+        maven { url "https://oss.sonatype.org/content/repositories/releases/" }
+        maven { url "https://jitpack.io" }
+    }
+}
+
+project(":desktop") {
+    apply plugin: "java-library"
+
+
+    dependencies {
+        implementation project(":core")
+        implementation "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
+        implementation group: 'io.netty', name: 'netty-all', version: '4.1.102.Final'
+        api "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
+        api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+    }
+}
+
+project(":tests") {
+    apply plugin: "java-library"
+
+    sourceSets.test.java.srcDirs = ["src/"]
+
+    dependencies {
+
+        /**
+         * If you do have some classes to test in os specific code you may want to uncomment
+         * some of these lines.
+         *
+         * BUT: I recommend to create seperate test sub projects for each platform. Trust me :)
+         *
+         */
+
+//        compile project(":android")
+//        compile project(":html")
+//        compile project(":desktop")
+
+
+//        if(System.getProperty("os.name").toLowerCase().indexOf("mac") >= 0) {
+//        	compile project(":ios")
+//        }
+
+        implementation project(":core")
+
+        implementation "junit:junit:4.+"
+        implementation "org.mockito:mockito-all:1.9.+"
+
+        implementation "com.badlogicgames.gdx:gdx:$gdxVersion"
+        implementation "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
+        implementation "com.badlogicgames.gdx:gdx-backend-headless:$gdxVersion"
+        implementation "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
+
+        testImplementation 'junit:junit:4.+'
+        testImplementation "org.mockito:mockito-all:1.9.+"
+
+        testImplementation "com.badlogicgames.gdx:gdx:$gdxVersion"
+        testImplementation "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
+        testImplementation "com.badlogicgames.gdx:gdx-backend-headless:$gdxVersion"
+        testImplementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+        testImplementation "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
+
+        api "com.badlogicgames.gdx:gdx:$gdxVersion"
+        api "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
+    }
+}
+
+project(":core") {
+    apply plugin: "java-library"
+
+
+    dependencies {
+        implementation "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
+        implementation group: 'io.netty', name: 'netty-all', version: '4.1.102.Final'
+        api "com.badlogicgames.gdx:gdx:$gdxVersion"
+    }
+}
