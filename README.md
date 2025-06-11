@@ -4,11 +4,9 @@
 
 A dynamic 2D action game built with Java/LibGDX featuring single-player and multiplayer modes. Battle monsters across multiple levels with unique characters!
 
-![](show2.png)
+## 🏁 How to Play
 
-## 🚀 How to Play
-
-### Quick Start
+### 🚀 Quick Start
 1. **Single Player**:
    ```bash
    ./gradlew desktop:run
@@ -42,8 +40,6 @@ A dynamic 2D action game built with Java/LibGDX featuring single-player and mult
 ---
 
 ## ✨ Key Features
-
-![](show1.png)
 
 **Characters:**
 - Single-player: Knight
@@ -110,3 +106,13 @@ Modify game parameters in
 - Network settings  
 - GIF recording options  
 - Level paths
+
+## 🎞️ Video
+
+### Single Player
+
+[![](show1.png)](https://www.bilibili.com/video/BV11H4y117Cm/?spm_id_from=333.1387.homepage.video_card.click&vd_source=93eb3b30c8b677754663fcca3a67b509)
+
+### Multiplayer
+
+[![](show2.png)](https://www.bilibili.com/video/BV1uG411Y7TH/?spm_id_from=333.1387.homepage.video_card.click&vd_source=93eb3b30c8b677754663fcca3a67b509)
